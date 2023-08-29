@@ -1,0 +1,312 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+   margin: 0;
+   background-color: black;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+header {
+    height: calc(100vh - 2rem);
+    width: 100%;
+    padding: 1rem;
+    max-height: 1000px;
+    background: url(images/spritz2.jpg) center no-repeat;
+    background-size: cover;
+    font-family: 'Josefin Slab', serif;
+}
+
+.border {
+    width: 100%;
+    height: 100%;
+    border: 1px solid goldenrod;
+    position: relative;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    font-family: 'Josefin Slab', serif;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+.logo {
+    width: 100%;
+    margin: 0;
+    padding-bottom: clamp(50px, 40vw, 300px);
+    color: transparent;
+    background: url(/images/logo.webp) no-repeat center;
+    background-size: contain;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.nav-link {
+    margin: 0 2vw;
+    font-size: clamp(1.4rem, 2vw, 28px);
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.book {
+    position: absolute;
+    bottom: 4vw;
+    left: 50%;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border: 1px solid white;
+    color: white;
+    background-color: black;
+    transform: translate(-50%, 0%);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.intro {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    z-index: 1;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: white;
+}
+
+.primary {
+    padding: 2rem 2rem 4rem;
+    color: white;
+}
+
+.secondary {
+    padding: 1rem;
+    background-color: goldenrod;
+    color: black;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
+}
+
+main h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0 2rem;
+}
+
+main p {
+    line-height: 1.8rem;
+    max-width: 800px;
+}
+
+main img {
+    width: 100%;
+    display: block;
+}
+
+.secondary h2, .secondary h3, .secondary p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.img-holder {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.img-holder::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    border: 1px solid goldenrod;
+}
+
+.button-holder {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.button {
+    display: block;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.button:hover {
+    background-color: white;
+}
+
+
+@media screen and (max-width: 1099px) {
+    .logo {
+        margin-top: 1rem;
+    }
+
+    nav {
+        display: flex;
+        height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        transition: height ease-in-out 0.2s;
+        margin-top: 1rem;
+        z-index: 2;
+    }
+
+    .nav-toggle:checked ~ nav {
+        height: 290px;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        border: 1px solid white;
+        background-color: black;
+        transform: translate(0, -1px)
+    }
+
+    .nav-button {
+        position: fixed;
+        top: 3rem;
+        right: 3rem;
+        width: 40px;
+        height: 30px;
+        color: transparent;
+        font-size: 0;
+    }
+
+    .nav-button::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0;
+        display: block;
+        width: 40px;
+        height: 2px;
+        background-color: white;
+        transform-origin: top left;
+        transition: all ease-in-out 0.2s;
+    }
+
+    .nav-button::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 0;
+        display: block;
+        width: 40px;
+        height: 12px;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        transform-origin: bottom left;
+        transition: all ease-in-out 0.2s;
+    }
+
+    .nav-toggle:checked ~ .nav-button:after {
+        height: 2px;
+        bottom: 0;
+        top: auto;
+        background-color: white;
+        border: 0;
+        transform: rotate(-45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle:checked ~ .nav-button:before {
+        transform: rotate(45deg) translate(5px, -5px);
+    }
+
+    .intro {
+        top: 40%;
+    }
+}
+
+
+
+@media screen and (min-width: 1100px) {
+    .border {
+        display: flex;
+    }
+
+    nav {
+        display: flex;
+        align-items: space-around;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .logo {
+        height: clamp(200px, 24vw, 300px);
+        width: clamp(200px, 24vw, 300px);
+        padding: 0;
+    }
+
+    .nav-link{
+        display: flex;
+        align-items: center;
+        height: calc(300px - 4vw);
+    }
+
+    .nav-link:hover {
+        color: goldenrod;
+    }
+
+    .book {
+        right: 0rem;
+        left: auto;
+    }
+
+    .intro {
+        bottom: 4vw;
+    }
+
+    .hire {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .img-holder {
+        margin: 0;
+    }
+
+    .button-holder {
+        margin: 1rem;
+    }
+
+    .table img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
